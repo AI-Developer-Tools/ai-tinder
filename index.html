@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Tinder Frontend</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div class="brand">
+        <span class="brand__logo" aria-hidden="true">🔥</span>
+        <span class="brand__name">Tinder Clone</span>
+        <span class="brand__tag">frontend only</span>
+      </div>
+      <button class="ghost-btn" id="shuffleBtn" aria-label="Shuffle deck">
+        Shuffle
+      </button>
+    </header>
+
+    <main class="app__main">
+      <section class="deck" id="deck" aria-live="polite" aria-busy="true">
+        <!-- Cards rendered by app.js -->
+      </section>
+
+      <div class="controls">
+        <button class="ctrl ctrl--nope" id="nopeBtn" title="Nope">✖</button>
+        <button class="ctrl ctrl--superlike" id="superLikeBtn" title="Super Like">★</button>
+        <button class="ctrl ctrl--like" id="likeBtn" title="Like">♥</button>
+      </div>
+
+      <p class="note">
+        <strong>Note:</strong> Swiping and button actions need to be implemented.
+      </p>
+    </main>
+
+    <footer class="app__footer">
+      AI all the things!
+    </footer>
+  </div>
+
+  <!-- Load logic after DOM -->
+  <script src="./app.js"></script>
+</body>
+</html>
