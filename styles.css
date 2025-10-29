@@ -201,3 +201,19 @@ body {
   .deck { width: 100%; }
   .ctrl { width: 56px; height: 56px; font-size: 24px; }
 }
+
+/* Card animation for reject action */
+.card--rejected {
+  animation: flyOutLeft 0.4s ease-in forwards;
+}
+
+@keyframes flyOutLeft {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-150%) translateY(50px) rotate(-30deg);
+    opacity: 0;
+  }
+}
