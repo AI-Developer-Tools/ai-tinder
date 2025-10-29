@@ -132,16 +132,51 @@ function resetDeck() {
   renderDeck();
 }
 
-// Controls (intentionally not implemented)
+// Controls
 likeBtn.addEventListener("click", () => {
   console.log("Like clicked.");
 });
+
 nopeBtn.addEventListener("click", () => {
   console.log("Nope clicked.");
+  
+  // Get the top card (first card in the deck)
+  const topCard = deckEl.querySelector(".card:first-child");
+  
+  if (!topCard) {
+    console.log("No more cards!");
+    return;
+  }
+  
+  // Disable buttons during animation
+  nopeBtn.disabled = true;
+  likeBtn.disabled = true;
+  superLikeBtn.disabled = true;
+  
+  // Add the rejected animation class
+  topCard.classList.add("card--rejected");
+  
+  // After animation completes, remove the card from DOM
+  topCard.addEventListener("animationend", () => {
+    topCard.remove();
+    
+    // Re-enable buttons
+    nopeBtn.disabled = false;
+    likeBtn.disabled = false;
+    superLikeBtn.disabled = false;
+    
+    // Optional: Check if deck is empty
+    if (deckEl.children.length === 0) {
+      console.log("Deck is empty! Reshuffling...");
+      resetDeck();
+    }
+  }, { once: true }); // 'once: true' ensures the listener is removed after firing
 });
+
 superLikeBtn.addEventListener("click", () => {
   console.log("Super Like clicked.");
 });
+
 shuffleBtn.addEventListener("click", resetDeck);
 
 // Boot
